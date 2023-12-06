@@ -6,7 +6,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/LxLung/LxLung.github.io">
-    <img src="./images/Logo.png" alt="Logo" width="80" height="80">
+    <img src="./images/tech_Logo.png" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">LxLung.github.io</h3>
