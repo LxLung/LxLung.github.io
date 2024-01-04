@@ -1,0 +1,41 @@
+baseURL: https://lxlung.github.io/
+languageCode: en-us
+title: LxLung
+theme: PaperMod
+
+params:
+  homeInfoParams:
+    Title: 'Welcome Traveller'
+    Content: 'Explore graphics, games, and greatness here'
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/LxLung/"
+  defaultTheme: auto
+  ShowBreadCrumbs: true
+  ShowPostNavLinks: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+menu:
+  main:
+    - identifier: Search
+      name: Search
+      url: /search/
+      weight: 7
+    - identifier: Series
+      name: Series
+      url: /series/
+      weight: 8
+    - identifier: Blog
+      name: Blog
+      url: /blog/
+      weight: 9
+    - identifier: Archive
+      name: Archive
+      url: /archive/
+      weight: 10
