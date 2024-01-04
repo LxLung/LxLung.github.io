@@ -27,7 +27,8 @@ Like many skilled developers, I also have a personal website where I proudly dis
 
 ### Built With
 
-* HTML ( <i>classic!</i> )
+* Hugo
+* PaperMod (A Hugo Theme)
 <!-- CONTACT -->
 ## Connections
 * [LinkedIn](https://www.linkedin.com/in/gavin-liang56/)
