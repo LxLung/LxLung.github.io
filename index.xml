@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LxLung</title>
+    <link>https://lxlung.github.io/</link>
+    <description>Recent content on LxLung</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jan 2024 14:39:08 -0800</lastBuildDate>
+    <atom:link href="https://lxlung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First</title>
+      <link>https://lxlung.github.io/series/first/</link>
+      <pubDate>Thu, 04 Jan 2024 14:39:08 -0800</pubDate>
+      <guid>https://lxlung.github.io/series/first/</guid>
+      <description>First Second Third </description>
+    </item>
+    <item>
+      <title>Page2</title>
+      <link>https://lxlung.github.io/blog/page2/</link>
+      <pubDate>Thu, 04 Jan 2024 13:42:46 -0800</pubDate>
+      <guid>https://lxlung.github.io/blog/page2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Page1</title>
+      <link>https://lxlung.github.io/blog/page1/</link>
+      <pubDate>Thu, 04 Jan 2024 13:39:04 -0800</pubDate>
+      <guid>https://lxlung.github.io/blog/page1/</guid>
+      <description>First Header This is what a markdown file should look like! test</description>
+    </item>
+  </channel>
+</rss>
