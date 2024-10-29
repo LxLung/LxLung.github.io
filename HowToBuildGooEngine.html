@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>How to Build Goo Engine</title>
+  </head>
+  <body>
+        <h1>
+            How to Build Goo Engine
+        </h1>
+        <h2>
+            Goo Engine 4.1 (as of October 2024)
+        </h2>
+        <h3>
+            Shouldn't be behind a paywall (^ w ^)
+        </h3>
+<a href="./index.html">Home</a>
+        <p>
+            Blender is complicated to build (Over 30 Years of software development).
+            Likewise, Goo Engine, being a fork of blender, is also complicated.
+            I hope this guide is helpful to at least one person.
+        <pre><h4>Step 1: Get the Build tools</h4>
+How to build blender (According to blender).
+<a target="_blank" href="https://developer.blender.org/docs/handbook/building_blender/">https://developer.blender.org/docs/handbook/building_blender/</a>
+Choose the link containing instructions depending on your Operating System.
+<ul> <li><a target="_blank" href="https://developer.blender.org/docs/handbook/building_blender/windows/">Windows</a></li>
+    <li><a target="_blank" href="https://developer.blender.org/docs/handbook/building_blender/mac/">MacOS</a></li>
+    <li><a target="_blank" href="https://developer.blender.org/docs/handbook/building_blender/linux/">Linux</a></li> </ul>
+Since, I am using windows, I will be using the windows build instructions,
+but the build steps should be similar for other Operating Systems.
+The development tools are  tools used to build blender. 
+	- Aside: Why development tools?
+		From the users perspective,
+		software just works! You download an installer and magic happens that spits out a program.
+		From the developers perspective, unfortunately, a program needs to be built. Developer tools
+		build the program. If this is confusing, here is an analogy. Let's say your car wheels need to be
+		installed. The installer is the car mechanic who just adds a wheel to your car. The wheel itself
+		needed to be built by the manufactuers (developers) which probably needed special tools (build tools).
+	- End of Aside
+Install <b>Visual Studio 2022 Community Edition</b>.
+The installer will prompt you to install Desktop Development with C++ workload.
+If you forgot to install it, don't panic, rerun the installer and click modify,
+which will bring up the window with all the different modules again.
+Install <b>Git for windows.</b> Add to PATH means search for "Edit the System environment variables."
+There is a PATH for User Variables and System Variables, add to "your PATH" usually means User Variables,
+while "system PATH for all users" usually means system path.
+Install <b>CMake</b> for "all users."
+<h4>Step 2: Use Build Tools to Build Blender/Goo Engine</h4>
+Open a command prompt/ terminal by typing cmd or powershell in the search bar for Windows.
+According to the blender doc <b>1. create a folder "blender-git"</b> in the place you want the installation to go
+(It can be named anything). 
+<pre>
+	<code>
+		mkdir blender-git
+		cd ./blender-git
+		git clone -b goo-engine-v4.1-release https://github.com/dillongoostudios/goo-engine.git
+	Wait for it to finish
+		cd .\goo-engine\
+		./make.bat update
+		./make.bat release
+	</code>
+<pre>
+If everything goes right, you should have no error messages 
+and the build would located in the blender-git folder (cd ..) (look inside bin/Release called Blender.exe). 
+If it was that simple, then I wouldn't be writing this.
+	- Aside: 
+		In preparation for this guide, I built the Original Blender source code 
+		and the Goo Engine source code.
+		Blender's code just works! 
+		I ran make.bat update which downloaded all the needed library files in lib\windows-x64
+		Goo Engine on the other hand did not just work :( AND the only instructions they gave
+		was blenders own instructions. Plus, their Github issues, a place to post bugs, were pretty unresponsive.
+		The vibe was clear: Paywalled Blender. We won't make it easy unless you pay us.
+	- End of Aside
+Goo Engine's default branch <b>goo-engine-main is missing ./lib folder</b> which causes make.bat to fail.
+"git clone -b </b>goo-engine-v4.1-release</b>" branch does have the ./lib folder. 
+Note that blender's default branch has ./lib folder so running ./make.bat update just works.
+
+<h5>Links that helped me</h5>
+<a target="_blank" href="https://www.reddit.com/r/blenderhelp/comments/ywupnw/how_do_i_build_goo_engine/">Reddit Post</a>
+Specifically: 
+Azukii Mochi "
+	Just adding on:
+
+	you can just drop the libraries
+	https://projects.blender.org/blender/lib-windows_x64.git
+	in "goo-engine/lib/windows_x64"
+
+	or
+
+	just clone the release
+
+	git clone -b <branch-name> <git-url>
+	example:
+	git clone -b goo-engine-v4.1-release https://github.com/dillongoostudios/goo-engine.git
+
+	at least on git bash
+"
+Some users mentioned downloading SVN like tortise, which used to be the Version Control System (VCS)
+but as of May 15, 2023, Blender is no longer using SVN. I did not need to use SVN and I wouldn't recommend it.
+        </pre>
+        </p>
+  </body>
+</html>
