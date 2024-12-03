@@ -1,28 +1,118 @@
 <!doctype html>
 <html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Home Page</title>
-  </head>
-  <body>
-        <h1>
-Gavin's Homepage
-        </h1>
-        <h2>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home Page</title>
+        <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        h1, h2, h3 {
+            margin: 10px 0;
+            text-align: center;
+        }
+        canvas {
+            width: 40%;
+            height: width;
+            max-width: 1024px;
+            border: 1px solid #000;
+            display: block;
+            margin: 20px auto;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        div {
+            text-align: center;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Gavin's Homepage</h1>
+        <h2>I like computers, graphics, and games!</h2>
+        <canvas id="myCanvas">Your browser does not support the canvas element.</canvas>
+        <!-- <script> -->
+        <!-- const canvas = document.getElementById('myCanvas'); -->
+        <!-- const ctx = canvas.getContext('2d'); -->
+        <!-- canvas.width = canvas.clientWidth; -->
+        <!-- canvas.height = canvas.clientWidth; -->
+        
+        <!-- t = 15; -->
+        <!-- const points = [ -->
+        <!--     { x: 50+t, y: 50 }, -->
+        <!--     { x: 150, y: 50 }, -->
+        <!--     { x: 150, y: 150 }, -->
+        <!--     { x: 50, y: 150 }, -->
+        <!-- ] -->
+        <!-- // Draw Quad -->
+        <!-- ctx.beginPath(); -->
+        <!-- ctx.moveTo(points[0].x, points[0].y); -->
+        <!-- // Draw Path -->
+        <!-- for (let i = 1; i < points.length; i++) { -->
+        <!--     ctx.lineTo(points[i].x, points[i].y); -->
+        <!-- } -->
 
-        </h2>
-        <h3>
+        <!-- ctx.fillStyle = '#00FF00'; // Green color -->
+        <!-- ctx.fill(); -->
+        <!-- </script> -->
+        <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 600;
+        canvas.height = 600;
 
-        </h3>
-        <p>
+        // Define colors
+        const colors = ['#008000', '#00A000', '#00C000']; // Three shades of green
 
+        // Function to draw a filled triangle
+        function drawTriangle(x1, y1, x2, y2, x3, y3, color) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.lineTo(x3, y3);
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        // Function to draw a repeating pattern
+        function drawPattern(centerX, centerY, size) {
+            const angleStep = (Math.PI * 2) / 6; // 6 repeating sections
+            for (let i = 0; i < 6; i++) {
+                const angle = i * angleStep;
+
+                // Calculate points for the main triangle
+                const x1 = centerX + size * Math.cos(angle);
+                const y1 = centerY + size * Math.sin(angle);
+                const x2 = centerX + size * Math.cos(angle + angleStep / 2);
+                const y2 = centerY + size * Math.sin(angle + angleStep / 2);
+                const x3 = centerX + (size / 2) * Math.cos(angle + angleStep / 2);
+                const y3 = centerY + (size / 2) * Math.sin(angle + angleStep / 2);
+
+                // Draw triangles with alternating shades
+                drawTriangle(centerX, centerY, x1, y1, x3, y3, colors[i % colors.length]);
+                drawTriangle(centerX, centerY, x2, y2, x3, y3, colors[(i + 1) % colors.length]);
+            }
+        }
+
+        // Draw the central geometric pattern
+        drawPattern(300, 300, 150); // Centered at (300, 300) with size 150
+    </script>
         <div>
-            <h3>
-                Read my other post here!
-            </h3>
-            <a target="_blank" href=HowToBuildGooEngine.html>How To Build Goo Engine</a>
+            <h3>Read my other post here!</h3>
+            <a target="_blank" href="HowToBuildGooEngine.html">How To Build Goo Engine</a>
         </div>
-        </p>
-  </body>
+    </body>
 </html>
